@@ -44,7 +44,6 @@ fi
 
 #check we are upto date and no local changes
 dirty=$(git ls-files -m | wc -l)
-echo "$dirty"
 if [[ ${dirty} > 0 ]]
 then
 echo "
@@ -53,8 +52,13 @@ echo "
 exit
 fi
 
+echo "
+what release version do you want to create (e.g. release-v1.3.0-rc1)?"
+read  -p "Input: " release
+
 
 #update the manifest with the release tag
+sed -i.bak -E 's/^integreatly_version: .*$/integreatly_version: ${release}/g'  ../evals/inventories/group_vars/all/manifest.yaml && rm ../evals/inventories/group_vars/all/manifest.yaml.bak
 
 #commit the change and push
 
