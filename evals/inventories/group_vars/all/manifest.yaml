@@ -1,5 +1,5 @@
 ---
-integreatly_version: release-v1.3.0-test-rc1
+integreatly_version: release-v1.3.0-test-rc2
 
 # threescale version is controlled by the operator. Changing the operator version will change the 3scale version
 
