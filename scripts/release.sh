@@ -44,7 +44,7 @@ fi
 
 #check we are upto date and no local changes
 
-if [[ $(git ls-files -m | wc -l) != 0 ]]
+if [[ $(git ls-files -m | wc -l) != "0" ]]
 then
 echo "
  the local file system is dirty cannot continue
