@@ -73,4 +73,4 @@ git commit -am "release manifest version  update for $release"
 git push mine ${branch}
 #tag and push
 git tag ${release}
-git push mine --tags
+git push mine ${release}
