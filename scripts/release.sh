@@ -58,7 +58,7 @@ read  -p "Input: " release
 
 
 #update the manifest with the release tag
-sed -i.bak -E 's/^integreatly_version: .*$/integreatly_version: ${release}/g'  ./evals/inventories/group_vars/all/manifest.yaml && rm ./evals/inventories/group_vars/all/manifest.yaml.bak
+sed -i.bak -E "s/^integreatly_version: .*$/integreatly_version: $release/g"  ./evals/inventories/group_vars/all/manifest.yaml && rm ./evals/inventories/group_vars/all/manifest.yaml.bak
 
 #commit the change and push
 
