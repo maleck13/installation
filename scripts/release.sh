@@ -56,12 +56,21 @@ echo "
 what release version do you want to create (e.g. release-v1.3.0-rc1)?"
 read  -p "Input: " release
 
+releaseExists=$(git tag | grep release-1.2.0-rc6 | wc -l)
+if [[ ${releaseExists} > 0 ]]
+then
+echo "
+a release with that name already exists
+"
+exit
+fi
 
 #update the manifest with the release tag
 sed -i.bak -E "s/^integreatly_version: .*$/integreatly_version: $release/g"  ./evals/inventories/group_vars/all/manifest.yaml && rm ./evals/inventories/group_vars/all/manifest.yaml.bak
 
 #commit the change and push
-
+git commit -am "release manifest version  update for $release"
+git push mine ${branch}
 #tag and push
-
-#commit the
+git tag ${release}
+git push --tags
