@@ -82,7 +82,7 @@ exit 1
 fi
 
 
-sed -i.bak -E "s/^integreatly_version: .*$/integreatly_version: ${releaseTag}/g"  ./evals/inventories/group_vars/all/manifest.yaml && rm ./evals/inventories/group_vars/all/manifest.yaml.bak
+sed -i.bak -E "s/^integreatly_version: .*$/integreatly_version: ${releaseTag}/g"  ./inventories/group_vars/all/manifest.yaml && rm ./inventories/group_vars/all/manifest.yaml.bak
 
 #commit the change and push
 git commit -am "release manifest version  update for ${releaseTag}"
