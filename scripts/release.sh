@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-REMOTE=mine
+REMOTE=origin
 
 #check the current branch we are on
 currentBranch=$(git symbolic-ref --short HEAD)
